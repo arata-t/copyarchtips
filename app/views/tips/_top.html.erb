@@ -1,0 +1,15 @@
+<div class="logo-area">
+  <%= link_to image_tag("/images/logo_arch_tips.png", class:"logo-image"), root_path %>
+  <h2 class="top-text">Arch_Tips(copy)</h2>
+</div>
+  <% if user_signed_in? %>
+  <ul class = "user-area">
+    <li ><%= link_to current_user.nickname, "#",  class:"user-button"%> </li>
+    <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout-button" %></li>
+  </ul>
+  <% else %>
+    <ul class = "user-area">
+    <li ><%= link_to "新規登録", new_user_registration_path, class:"new-user-button"%> </li>
+    <li><%= link_to 'ログイン', new_user_session_path, class: "login-button" %></li>
+    </ul>
+  <% end %>

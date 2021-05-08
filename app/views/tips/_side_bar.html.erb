@@ -1,0 +1,51 @@
+<ul>
+  <li class="new-tip" id="new-tip">
+    <%= link_to "新規投稿", new_tip_path, id:"new-tip-btn" %>
+  </li>
+  <li class="new-question" id="new-question">
+    <%= link_to "質問する", root_path, id:"new-question-btn" %>
+  </li>
+  <% if user_signed_in? %>
+    <li class="my-page" id="my-page">
+      <%= link_to "マイページ", "/users/#{current_user.id}", id:"my-page-btn" %>
+    </li>
+  <% end %>
+  <li class="search" id="search">
+    <a id="search-btn" class="search-btn">詳細検索</a>
+  </li>
+</ul>
+<div class="detail-search-area" id="detail-search-area" >
+  <%= search_form_for @t, url: detail_search_tips_path do |f| %>
+    <div class="search-title-area">
+      <p>タイトル：</p>
+        <div>
+          <%= f.text_field :title_cont, placeholder:"タイトルを入力", class:"search-title" %>
+        </div>
+    </div>
+    <div class="search-tag-area">
+      <p>タグ：</p>
+      <div>
+        <%= f.text_field :tip_tag_relations_tag_name_cont, placeholder:"タグを入力", class:"search-title" %>
+      </div>
+    </div>
+    <div class="search-category-area">
+      <p>カテゴリー：</p>
+      <div>
+        <%= f.collection_select(:category_id_eq, @category, :id, :name, { include_blank: '--'}) %>
+      </div>
+    </div>
+    <div class="search-distributer-area">
+      <p>ユーザー：</p>
+      <div>
+        <%= f.text_field :user_nickname_cont, placeholder:"ユーザー名を入力", class: "search-distributer" %>
+      </div>
+    </div>
+    <div class="search-description-area">
+      <p>説明：</p>
+      <div>
+        <%= f.text_field :description_cont, placeholder:"キーワードを入力", class: "search-discription" %>
+      </div>
+    </div>
+    <%= f.submit '検索', class: "search-submit", id: "search-submit" %>
+  <% end %>
+</div>

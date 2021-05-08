@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        last_name: 姓
+        first_name: 名前
+      tip:
+        title: タイトル
+        description: 説明
+        category_id: カテゴリー
+  activemodel:
+    attributes:
+      tip_tag:
+        title: タイトル
+        description: 説明
+        category_id: カテゴリー
+        name: タグ
+  time:
+      formats:
+        default: "%Y/%m/%d %H:%M:%S"

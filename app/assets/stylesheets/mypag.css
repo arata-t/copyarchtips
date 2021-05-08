@@ -1,0 +1,36 @@
+.mypage-area{
+  width: 100%;
+  height: calc(100vh - 200px);
+  overflow: auto;
+}
+
+.plofile{
+  display: block;
+  align-items: center;
+  margin: 20px;
+}
+.plofile-name{
+  margin: 0 auto;
+}
+.plofile-name p{
+  font-size: 28px;
+  text-align: center;
+}
+.plofile-introduction{
+  margin: 20px;
+}
+.plofile-introduction p{
+  font-size: 18px;
+  text-align: center;
+  padding: 0 30px;
+}
+.plofile-status{
+  margin: 20px;
+  border-top: 1.5px solid lightgrey;
+  display: flex;
+  justify-content: space-around;
+}
+.plofile-status-contents{
+  padding-top: 20px;
+  text-align: center;
+}

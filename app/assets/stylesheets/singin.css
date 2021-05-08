@@ -1,0 +1,104 @@
+/* header */
+.header{
+  
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo{  
+  border-bottom: 3px solid #ddd;
+  width: 960px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo a{
+  font-size: 40px;
+  color:rgb(83, 83, 83);
+  text-decoration: none;
+  height: 100px;
+}
+
+/* middle */
+
+.middle{
+  display: flex;
+}
+
+/* left-contents */
+.left-contents{
+width: 500px;
+display: flex;
+}
+.contents-text{
+  padding: 20px;
+  width: max-width;
+}
+.contents-text h2{
+  font-size: 28px;
+  margin-bottom: 8px;
+  text-align: center;
+  font-weight: 50;
+  color: rgb(83, 83, 83);
+}
+.contents-text p{
+  font-size: 21px;
+  margin-bottom: 16px;
+  padding-left: 30px;
+  color: rgb(83, 83, 83);
+}
+
+.contents-text a{
+  font-size: 21px;
+  margin-bottom: 16px;
+  padding-left: 30px;
+}
+
+/* session-contents */
+.session-contents{
+  width: 400px;
+}
+/* registration-contents */
+.registration-contents{
+  width: 500px;
+}
+
+.contents-box{
+  border: 3px solid #ddd;
+  border-radius: 5px;
+  background-color:white;
+  margin: 20px;
+  padding: 20px;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 21px;
+  line-height: 40px;
+  color:rgb(83, 83, 83);
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+label, input, button, select, textarea {
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  margin-bottom: 10px;
+  width: 200px;
+}
+
+textarea#user_introduction {
+  width:360px;
+  height:200px;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 5px 12px;
+  font-size: 14px;
+}

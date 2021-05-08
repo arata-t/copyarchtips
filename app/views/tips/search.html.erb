@@ -1,0 +1,12 @@
+<div class="back">
+  <div class=top>
+    <%= render "top" %>
+  </div>
+  <div class="main">
+    <div class="side-bar">
+      <%=render "side_bar" %>
+    </div>
+    <div class="main-area">
+    <%= render "main_area", locals: { tip: @tips } %>
+    </div>
+</div>

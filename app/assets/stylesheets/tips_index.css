@@ -1,0 +1,226 @@
+.error_messages{
+  margin-bottom: 20px;
+  }
+
+.error_messages h2{
+display: none;
+}
+
+.error_messages li{
+  color: red;
+  list-style: none;
+}
+
+.login-flash-message{
+  color: red;
+  margin-bottom: 20px;
+}
+
+.back {
+  background-color: white;
+}
+
+/* ----------top------------- */
+.top{
+  background-color: white;
+  width: 100vw;
+  height: 100px;
+  padding: 0px 40px;
+  border-bottom: 1.5px solid gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+  .logo-area{
+    width: 300px;
+    display: flex;
+  }
+    .logo-image{
+      width: 100px;
+      height: 100px;
+    }
+    .top-text{
+      font-size: 36px;
+      margin:20px 0 ;
+    }
+
+  .user-area{
+    width: 300px;
+    padding:20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+  }
+    .user-button,.new-user-button{
+      margin: 20px;
+      white-space: nowrap
+    }
+    .login-button,.logout-button{
+      margin:20px;
+      white-space: nowrap
+    }
+
+/* -------------main-------------- */
+.main {
+  height: calc(100vh - 100px);
+  display: flex;
+  /* border-bottom:1px solid ; */
+}
+/* ------------side-bar-------------- */
+.side-bar {
+  background-color: white;
+  width: 300px;
+  border-right: 1.5px solid gray;
+  height: calc(100vh - 100px);
+}
+
+  .new-tip{
+    padding: 20px 40px 18px 40px;
+    font-size: 21px;
+  }
+
+  .new-question,.my-page,.search{
+    padding: 12px 40px;
+    font-size: 21px;
+  }
+
+  .detail-search-area{
+    display: none;
+    padding-top:10px ;
+    margin: 0 40px 15px 40px;
+    width: 220px;
+    height: 420px;
+  }
+
+  .search-title-area,
+  .search-tag-area,
+  .search-category-area,
+  .search-distributer-area,
+  .search-description-area{
+    margin-top: 10px;
+  }
+
+  .search-btn{
+    cursor : pointer;
+  }
+
+  .search-submit{
+    width: 140px;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+  
+  /* ------------main-area----------------- */
+  .main-area{
+    width: calc(100vw - 300px);
+    height: calc(100vh - 100px);
+    overflow: auto;
+  }
+    .main-top{
+      background-color: rgb(230, 230, 230);
+      height: 70px;
+      display: flex;
+      justify-content: space-between;
+    }
+      .new-tip-title{
+        padding: 20px;
+        margin-left: 10px;
+      }
+        .new-tip-title p{
+          font-size: 21px;
+          min-width: 200px;
+        }
+      .search-area{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 400px;
+      }
+      .search-area-form{
+        width:300px;
+      }
+        .search-form{
+          border: 1px solid gray;
+          border-radius: 5px;
+          margin: 20px 5px;
+        }
+        .search-button{
+          border: 1px solid gray;
+          border-radius: 5px;
+          margin: 20px 20px 20px 5px ;
+          width: 40px;
+          text-align: center;
+        }
+/* -------------tiped------------- */
+    .tiped{
+      display: flex;
+      justify-content:space-between ;
+      padding: 20px;
+      border-bottom: 1.5px solid lightgrey;
+    }
+      .tiped-contents{
+        padding: 10px;
+        width: 400px;
+        min-width: 200px;
+      }
+        .tiped-title{
+          font-size: 24px;
+          margin-bottom:21px;
+        }
+        .tiped-title-contents{
+          font-size: 14px;
+          margin-bottom: 15px;
+        }
+      .tiped-image-field{
+        width: 600px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .main-image{
+        width:320px;
+        height: 320px;
+        border: 1px solid;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .uped-image-main{
+        max-width:250px;
+        max-height: 250px;
+        margin:auto;
+      }
+
+      .uped-image-hide{
+        opacity: 0;
+        width: 250px;
+        height: 250px;
+        position: absolute;
+        top: 35px;
+        left: 35px;
+      }
+
+      .no-image-main{
+        width:150px;
+        height: 150px;
+        margin:auto;
+        opacity: 0.5;
+      }
+
+      .search-nil{
+        margin: 20px;
+        font-size: 14px;
+      }
+
+      .search-to-top{
+        text-align: center;
+        margin: 50px auto;
+        width:100%;
+      }
+
+
+
+

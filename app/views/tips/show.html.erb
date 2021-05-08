@@ -1,0 +1,92 @@
+<div class = "wrapper">
+  <%= render "shared/header" %>
+  <div class="main-tips-show">
+    <div class="tip-title">
+      <p class="tip-title-show"><%= @tip.title %></p>
+    </div>
+    <div class="#">
+      <div class="image-show">
+        <%if @tip.image.present? && @tip.image.content_type == 'application/pdf'%>
+          <div>
+            <object data="<%=url_for(@tip.image)%>" type="application/pdf" width="400px" height="500px" class='image-show-content' ></object>
+            <div class="pdf-layout"><a href="<%= image_url(url_for(@tip.image)) %>">リンクへ移動</a></div>
+          </div>
+        <% elsif @tip.image.present? %>
+          <%= image_tag @tip.image, class: 'image-show-content' %>
+        <% else %>
+          <%= image_tag "noimage.jpg", class:"image-show-content-none" %>
+        <% end %>
+      </div>
+<% 
+=begin
+%>
+      <div class="image-show">
+        <%if @tip.image.present?%>
+        <%= image_tag @tip.image, class: 'image-show-content' %>
+        <% else %>
+        <%= image_tag "noimage.jpg", class:"image-show-content-none" %>
+        <% end %>
+      </div>
+      <div class="image-show">
+        <%if @tip.image.present?%>
+        <%= image_tag @tip.image, class: 'image-show-content' %>
+        <% else %>
+        <%= image_tag "noimage.jpg", class:"image-show-content-none" %>
+        <% end %>
+      </div>
+<%
+=end
+%>
+      </div>
+      <div class="tip-tag">
+        <p>タグ : <% @tip.tags.each do |tag| %>  <%=tag.name%> <% end %></p>
+      </div>
+      <div class="tip-category">
+        <p>カテゴリー : <%= Category.data[@tip.category_id - 1][:name] %></p>
+      </div>
+      <div class="tip-contributer">
+        <p>投稿者 : <%= link_to @tip.user.nickname, "/users/#{@tip.user.id}" %> </p>
+      </div>
+      <div class="tip-description">
+        <p>説明 :  </p>
+      <%= @tip.description %>
+    </div>
+  </div>
+  <div class="comment-area">
+    <% if user_signed_in? %>
+      <%= form_with(model: [@tip, @comment], local: true) do |form| %>
+        <div class="comment-form">
+          <%= form.text_area :comment, placeholder: "投稿に対するコメントがあればこちらにお願いします。", rows: "2" %>
+        </div>
+        <div class="comment-button-area">
+          <%= form.submit "コメントする", class:"comment-button" %>
+        </div>
+      <% end %>
+    <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+    <% end %>
+  </div>
+  <div class="comments-area">
+    <h4><コメント一覧></h4>
+    <% @comments.each do |comment| %>
+      <div class="comments-list">
+        <div><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>　：　</div>
+        <div><%=comment.comment%></div>
+      </div>
+    <% end %>
+  </div>
+  <% if user_signed_in? && current_user.id == @tip.user.id %>
+    <div class="edit-delete-area">
+      <div class="show-edit">
+        <div class="btn-edit">
+          <%= link_to '投稿の編集', edit_tip_path(@tip.id), class: "btn-edit-str" %>
+        </div>
+      </div>
+      <div class="show-delete">
+        <div class="btn-delete">
+          <%= link_to '投稿の削除', tip_path(@tip.id), method: :delete, class: "btn-delete-str" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

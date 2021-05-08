@@ -1,0 +1,32 @@
+      <div class="tip-title">
+        <p>タイトル</p>
+        <div class="tip-title-content">
+          <%= form.text_field :title, placeholder: "" %>
+        </div>
+      </div>
+      <div class="tip-tag">
+        <p>タグ</p>
+        <div class="tag-content", id='tag-content'>
+          <%= form.text_field :name, class:"input-tag", autocomplete: 'off' %>
+          <div id="search-result" class="search-result"></div>
+        </div>
+      </div>
+      <div class="tip-category">
+        <p>カテゴリー</p>
+        <div class="tip-category-content">
+          <%= form.collection_select(:category_id, Category.all, :id, :name, {}, {class:"category-content"}) %>
+        </div>
+      </div>
+      <div class="tip-images">
+        <div class="tip-image-main">
+          <p class="tip-image-main-text">画像(メイン)</p>
+          <div id="image-list">
+            <%= form.file_field :image, class: 'tip-image-main-img', id: 'tip-image-main-img' %>
+          </div>
+        </div>
+      </div>
+      <div class="tip-description">
+        <p class="tip-description-text">説明</p>
+        <%= form.text_area :description, placeholder:"", class: 'text-form' %>
+      </div>
+      <%= form.submit "投稿する", class: 'input-submit' %>

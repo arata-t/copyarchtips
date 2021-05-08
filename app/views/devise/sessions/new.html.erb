@@ -1,0 +1,41 @@
+<div class = "wrapper">
+  <%= render "shared/header" %>
+  <div class = "middle">
+    <div class="left-contents">
+      <div class="contents-text">
+        <h2>ようこそArch_Tipsへ</h2><br/>
+        <p>メールアドレス、パスワードでログインしてください。</p>
+        <p>まだログインIDをお持ちでない方は新規登録をクリックしてください。</p>
+        <br>
+        <a href="/users/sign_up">新規登録へ</a>
+      </div>
+    </div>
+    <div class="session-contents">
+      <div class="contents-box">
+        <legend>ログイン</legend>
+        <div class='login-flash-message'>
+          <%= flash[:notice] %>
+          <%= flash[:alert] %>
+        </div>
+        <%= form_with model: @user, url: user_session_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true %>
+          </div>
+          <br>
+          <div class="field">
+            <%= f.label :password %><em>(半角英数6文字以上)</em><br />
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+          <br>
+          <br>
+          <div class="actions">
+            <input type="submit" value="ログイン" class="btn">
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class = "footer">
+  </div>
+</div>

@@ -1,0 +1,4 @@
+    <%= form_with(model: @tip,url: tips_path, local: true) do |form| %>
+    <%= render 'layouts/error_messages', model: form.object %>
+    <%= render "new_edit" ,form: form%>
+    <% end %>

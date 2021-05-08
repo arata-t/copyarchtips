@@ -1,0 +1,16 @@
+<div class="main-top">
+  <div class="new-tip-title">
+    <% if current_page?(root_path) %>
+      <p>最新の投稿</p>
+    <% else %>
+      <p>検索結果</p>
+    <% end %>
+  </div>
+  <div class="search-area">
+      <%= form_with(url: search_tips_path, local: true, method: :get, class: "search-area-form") do |form| %>
+        <%= form.text_field :keyword, placeholder: "キーワードを入力", class: "search-form" %>
+        <%= form.submit "検索", class: "search-button" %>
+      <% end %>
+  </div>
+</div>
+<%= render "main_search_area" %>

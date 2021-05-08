@@ -1,0 +1,45 @@
+<div class="wrapper">
+  <%= render "shared/header" %>
+  <div class="plofile">
+    <div class="plofile-name">
+      <p> <%=@user.nickname%> </p>
+    </div>
+    <% if @user.introduction.present?%>
+      <div class="plofile-introduction">
+        <p> <%=@user.introduction%> </p>
+      </div>
+    <% end %>
+    <div class="plofile-status">
+      <div class="plofile-status-contents">
+        <p>投稿</p>
+        <p> <%=@tips.length%> </p>
+      </div>
+      <div class="plofile-status-contents">
+        <p>コメント</p>
+        <p> <%=@user.comment.length%> </p>
+      </div>
+      <div class="plofile-status-contents">
+        <p>質問</p>
+        <p>0</p>
+      </div>
+    </div>
+  </div>
+  <div class="main-top">
+    <div class="new-tip-title">
+      <p> 投稿一覧</p>
+    </div>
+    <div class="search-area">
+        <% form_with(url: search_tips_path, local: true, method: :get) do |form| %>
+          <% form.text_field :keyword, placeholder: "キーワードを入力", class: "search-form" %>
+          <% form.submit "検索", class: "search-button" %>
+        <% end %>
+    </div>
+  </div>
+  <div class="mypage-area">
+    <%= render "tips/main_search_area" %>
+  </div>
+</div>    
+
+
+
+

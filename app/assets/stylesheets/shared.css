@@ -1,0 +1,24 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+  color:rgb(83, 83, 83);
+}
+
+.wrapper{
+  width: 900px;
+  display: block;
+  margin: 60px auto;
+  border: 3px solid #ddd;
+  border-radius: 10px;
+}
+
+.tip-title, 
+.tip-category, 
+.tip-description,
+.tip-contributer,
+.tip-tag{
+  padding: 20px;
+  margin-bottom: 10px;
+  font-size: 21px;
+}
