@@ -12,7 +12,7 @@
             <div class="pdf-layout"><a href="<%= image_url(url_for(@tip.image)) %>">リンクへ移動</a></div>
           </div>
         <% elsif @tip.image.present? %>
-          <%= image_tag @tip.image, class: 'image-show-content' %>
+          <%= image_tag @tip.image.url, class: 'image-show-content' %>
         <% else %>
           <%= image_tag "noimage.jpg", class:"image-show-content-none" %>
         <% end %>
