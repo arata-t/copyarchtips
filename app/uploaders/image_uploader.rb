@@ -1,6 +1,6 @@
 class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  include CarrierWave::RMagick
   include CarrierWave::MiniMagick
   process resize_to_fit: [800, 800]
 
@@ -35,9 +35,18 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process resize_to_fit: [50, 50]
-  # end
+  version :thumb do
+    # process :cover
+    process :resize_to_limit => [1000, 1000]
+    process :convert => 'png'
+  end
+
+  #1ページ目だけを指定してPNG形式への変換を行う
+  def cover
+    manipulate! do |frame, index|
+      frame if index.zero?
+    end
+  end
 
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
