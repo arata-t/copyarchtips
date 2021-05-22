@@ -11,7 +11,8 @@ require('../preview')
 require("../tag_new")
 require("../tag_edit")
 require("../detail_search")
-
+require('jquery')
+require('../shared_attribute')
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

@@ -8,9 +8,9 @@
         <p class="tiped-title-contents">投稿時間 :  <%= l f.updated_at%></p>
         <p class="tiped-title-contents">タグ :  <% f.tags.each do |tag| %>  <%=tag.name%> <% end %> </p>
         <p class="tiped-title-contents">カテゴリー :  <%= Category.data[f.category_id - 1][:name] %></p>
-        <p class="tiped-title-contents">投稿者 :  <%= link_to f.user.nickname, "/users/#{f.user.id}" %> </p>
+        <p class="tiped-title-contents">投稿者 :  <span><%= link_to f.user.nickname, "/users/#{f.user.id}", id:'tiped-title-contents-distributer' %></span> </p>
         <p class="tiped-title-contents">説明 : <br> <%= f.description%></p>
-      </div>
+        </div>
       <div class="tiped-image-field">
         <div class="main-image", id="main-image">
           <% if f.image.present? && f.image.content_type == 'application/pdf' %>

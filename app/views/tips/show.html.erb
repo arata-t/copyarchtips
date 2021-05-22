@@ -45,7 +45,7 @@
         <p>カテゴリー : <%= Category.data[@tip.category_id - 1][:name] %></p>
       </div>
       <div class="tip-contributer">
-        <p>投稿者 : <%= link_to @tip.user.nickname, "/users/#{@tip.user.id}" %> </p>
+        <p>投稿者 : <%= link_to @tip.user.nickname, "/users/#{@tip.user.id}", id:"tip-show-contributer" %> </p>
       </div>
       <div class="tip-description">
         <p>説明 :  </p>
