@@ -5,6 +5,7 @@ RSpec.describe 'Comments', type: :request do
     @user = FactoryBot.create(:user)
     @tip = FactoryBot.create(:tip)
   end
+
   describe 'GET/tips/show' do
     it 'ログインした状態でtips/showにアクセスするとコメントが投稿覧が表示される' do
       sign_in @user

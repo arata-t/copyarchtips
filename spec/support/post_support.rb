@@ -9,7 +9,7 @@ module PostSupport
     fill_in 'tip_description', with: tip.description
     expect  do
       find('input[type="submit"]').click
-    end.to change { Tip.count }.by(1)
+    end.to change(Tip, :count).by(1)
     expect(current_path).to eq root_path
     expect(page).to have_content(tip.title)
     expect(page).to have_content(@tag.name)

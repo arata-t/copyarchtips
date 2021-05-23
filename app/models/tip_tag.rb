@@ -45,7 +45,7 @@ class TipTag
       category_id: tip.category_id,
       description: tip.description,
       image: tip.image,
-      name: tip.tags.pluck(:name).join(',')
+      name: tip.tags.pluck(:name).join(','),
     }
   end
 end

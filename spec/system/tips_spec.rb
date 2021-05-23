@@ -5,6 +5,7 @@ RSpec.describe '投稿する', type: :system do
     @tip = FactoryBot.create(:tip)
     @tag = FactoryBot.create(:tag)
   end
+
   context '投稿に失敗した時' do
     it '送る値が空の為、メッセージの送信に失敗すること' do
       # ログイン
@@ -14,9 +15,10 @@ RSpec.describe '投稿する', type: :system do
       click_on '新規投稿'
       expect do
         find('input[type="submit"]').click
-      end.not_to change { Tip.count }
+      end.not_to change(Tip, :count)
     end
   end
+
   context '投稿に成功した時' do
     it '投稿に成功し、トップページに投稿したタイトル、カテゴリー、説明が表示されていること' do
       # ログイン
@@ -28,7 +30,7 @@ RSpec.describe '投稿する', type: :system do
       fill_in 'tip_description', with: @tip.description
       expect  do
         find('input[type="submit"]').click
-      end.to change { Tip.count }.by(1)
+      end.to change(Tip, :count).by(1)
       expect(current_path).to eq(root_path)
       expect(page).to have_content(@tip.title)
       expect(page).to have_content(Category.data[@tip.category_id - 1][:name])
@@ -46,7 +48,7 @@ RSpec.describe '投稿する', type: :system do
       fill_in 'tip_description', with: @tip.description
       expect  do
         find('input[type="submit"]').click
-      end.to change { Tip.count }.by(1)
+      end.to change(Tip, :count).by(1)
       expect(current_path).to eq root_path
       expect(page).to have_content(@tip.title)
       expect(page).to have_content(Category.data[@tip.category_id - 1][:name])
@@ -67,6 +69,7 @@ RSpec.describe '詳細', type: :system do
     @tip = FactoryBot.create(:tip)
     @tag = FactoryBot.create(:tag)
   end
+
   context '詳細ページに移動できる' do
     it '画像を含めた投稿が成功したら、投稿したタイトル。カテゴリー・説明・画像が詳細ページに表示されること' do
       # ログイン
@@ -78,6 +81,7 @@ RSpec.describe '詳細', type: :system do
       show(@tip)
     end
   end
+
   it 'ログインしていない状態で詳細ページに遷移できるもののコメント投稿欄が表示されない' do
     visit tip_path(@tip)
     expect(page).to have_content(@tip.title)
@@ -94,6 +98,7 @@ RSpec.describe '編集する', type: :system do
     @tip = FactoryBot.create(:tip)
     @tag = FactoryBot.create(:tag)
   end
+
   context '編集に成功した時' do
     it '画像を含めた投稿が成功したら投稿が編集できる' do
       # ログイン
@@ -114,7 +119,7 @@ RSpec.describe '編集する', type: :system do
       fill_in 'tip_description', with: other_tip.description
       expect  do
         find('input[type="submit"]').click
-      end.to change { Tip.count }.by(0)
+      end.to change(Tip, :count).by(0)
       expect(current_path).to eq root_path
       expect(page).to have_content(other_tip.title)
       expect(page).to have_content(Category.data[other_tip.category_id - 1][:name])
@@ -122,6 +127,7 @@ RSpec.describe '編集する', type: :system do
       expect(page).to have_selector('img')
     end
   end
+
   context '編集に失敗した時' do
     it '自分以外の投稿は編集できない' do
       @tip2 = FactoryBot.create(:tip)
@@ -159,6 +165,7 @@ RSpec.describe '削除する', type: :system do
     @tip = FactoryBot.create(:tip)
     @tag = FactoryBot.create(:tag)
   end
+
   context '削除に成功する' do
     it '投稿をを正しく削除できる' do
       # ログイン
@@ -174,6 +181,7 @@ RSpec.describe '削除する', type: :system do
       expect(page).not_to have_content(other_tip.title)
     end
   end
+
   context '削除に失敗する' do
     it '自分以外の投稿は削除できない' do
       @tip2 = FactoryBot.create(:tip)
@@ -197,6 +205,7 @@ RSpec.describe '検索する', type: :system do
     @tip = FactoryBot.create(:tip)
     @tag = FactoryBot.create(:tag)
   end
+
   context '検索に成功する' do
     it '正しく検索を行うと投稿した内容がトップページに検索結果が表示される' do
       # ログイン
@@ -206,6 +215,7 @@ RSpec.describe '検索する', type: :system do
       post(other_tip)
     end
   end
+
   context '検索に失敗する' do
     it '検索結果がない場合は投稿はありませんと表示される' do
       # ログイン

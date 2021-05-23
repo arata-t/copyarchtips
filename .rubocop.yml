@@ -1,3 +1,9 @@
+inherit_from:
+  - .rubocop_airbnb.yml
+
+Rails:
+  Enabled: true
+
 AllCops:
 # 除外するディレクトリ（自動生成されたファイル）
 # デフォルト設定にある"vendor/**/*"が無効化されないように記述
@@ -8,6 +14,8 @@ AllCops:
    - "bin/*"
    - "node_modules/**/*"
    - "Gemfile"
+
+
 
 
 # 1行あたりの文字数をチェックする
